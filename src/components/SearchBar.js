@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { WeatherDataContext } from '../components/Data';
 import { fetchWeatherApi } from 'openmeteo';
-import '../Css/Search.css';
+import '../Css/SearchBar.css';
 
 const SearchBar = () => {
     const { fetchWeatherData } = useContext(WeatherDataContext);
