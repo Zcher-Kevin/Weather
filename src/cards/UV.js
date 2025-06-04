@@ -1,0 +1,1 @@
+// This card is used to show the UV index data for the current day.

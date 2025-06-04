@@ -1,0 +1,1 @@
+// This card is used to show the current wind data ( Speed, Direction ...)

@@ -1,0 +1,1 @@
+// This card is used to display the hourly weather data for the next 24 hours.
