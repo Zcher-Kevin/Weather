@@ -7,8 +7,12 @@ import '../Css/Search.css';
 
 const Search = ({ isOpen, toggleSearchModal}) => {
     const { fetchWeatherData } = useContext(WeatherDataContext);
-    const [ search, setSearch ] = useState('');
+    const [ search, setSearch ] = useState(initialQuery || '');
     const [ cityLookup, setCityLookup ] = useState([]);
+
+    useEffect(() => {
+        setSearch(initialQuery || '');
+    }, [initialQuery]);
 
     useEffect(() => {
         if (search.length < 2) {
@@ -76,6 +80,18 @@ const Search = ({ isOpen, toggleSearchModal}) => {
                     Search for a city
                 </div>
             )}
+
+            <div className='search-results'>
+                {cityLookup.map((city, index) => (
+                    <div
+                        key={`item-${index}`}
+                        className='search-result-item'
+                        onClick={() => handleCitySelect(city.name)}
+                    >
+                        {city.name}, {city.countryIndex}
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
