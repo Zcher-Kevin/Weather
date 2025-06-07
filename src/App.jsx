@@ -14,7 +14,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const toggleSearchModal = () => {
-    setIsSearchModalOpen(!isSearcuModalOpen);
+    setIsSearchModalOpen(!isSearchModalOpen);
     if (!isSearchModalOpen) {
       setSearchQuery(''); // Reset search query when opening the modal
     }

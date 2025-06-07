@@ -1,10 +1,10 @@
 // the bar for searching the city and displaying the weather data
 
-import React, { useContext, useEffect, useState, useCallback } from 'react';
+import React, { useContext, useState } from 'react';
 import { WeatherDataContext } from '../components/Data';
 import '../Css/SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ toggleSearchModal, setSearchQuery}) => {
     const { fetchWeatherData } = useContext(WeatherDataContext);
     const [inputedCity, setInputedCity] = useState('');
     
@@ -14,7 +14,8 @@ const SearchBar = () => {
             setSearchQuery(inputedCity);
             toggleSearchModal();
         }
-    }
+    };
+
     const handleCitySelect = () => {
         if (inputedCity.trim()) {
             fetchWeatherData(inputedCity);
@@ -31,14 +32,14 @@ const SearchBar = () => {
             <div className="search-input-wrapper">
                 <input
                 type="text"
-                value={inputCity}
+                value={inputedCity}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyPress}
                 placeholder="Search for city"
                 className="search-input"
                 />
             </div>
-            <div className="add-button" onClick={() => { setSearchQuery(inputCity); toggleSearchModal(); }}>
+            <div className="add-button" onClick={() => { setSearchQuery(inputedCity); toggleSearchModal(); }}>
                 <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24"

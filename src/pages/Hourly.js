@@ -16,7 +16,7 @@ const Hourly = () => {
                 <div className='hourly-list'>
                     {hourly.time.slice(0, 24).map((time, index) => (
                         <div key = {index} className='hourly-item'>
-                            <p> { new Data(time).toLocaleTimeString('en-US',
+                            <p> { new Date(time).toLocaleTimeString('en-US',
                                  { hour: 'numeric', hour12: true })}</p>
                             <p> { hourly.temperature_2m?.[index] || 'N/A'}°C</p>
                         </div>

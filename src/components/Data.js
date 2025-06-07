@@ -12,7 +12,7 @@ const Data = ({ children, initalCity = 'London' }) => {
     const [currentTemperature, setCurrentTemperature] = useState(null);
     const [error, setError] = useState(null);
     const [city, setCity] = useState(initalCity);
-    const [lastCity, setLastCity] = useState(initalCity);
+    const [lastCity, setLastCity] = useState(null);
 
     const fetchWeatherData = async (cityName) => {
         if ( lastCity === cityName && weatherData) {
@@ -33,9 +33,9 @@ const Data = ({ children, initalCity = 'London' }) => {
         const params = {
             latitude,
             longitude,
-            current: 'temperature_2m,wind_speed_10m,wind_direction_10m,uv_index',
-            hourly: 'temperature_2m,precipitation,uv_index,wind_speed_10m',
-            daily: 'weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,wind_speed_10m_max',
+            current: 'temperature_2m, wind_speed_10m, wind_direction_10m, uv_index',
+            hourly: 'temperature_2m, precipitation, uv_index, wind_speed_10m',
+            daily: 'weather_code, temperature_2m_max, temperature_2m_min, uv_index_max, wind_speed_10m_max',
             forecast_days: 10,
             timezone: 'auto',
         };
@@ -50,15 +50,16 @@ const Data = ({ children, initalCity = 'London' }) => {
     } catch (err) {
         setError(err.message || 'Failed to fetch weather data');
         setWeatherData(null);
-        setWeatherData(null);
+        setCurrentTemperature(null);
         }
     }
     
     useEffect(() => {
+        fetchWeatherData(city);
     }, [city]);
 
     return (
-        <WeatherDataContext.Provider value={{ weatherData, error, city, setCity }}>
+        <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity }}>
             {children}
         </WeatherDataContext.Provider>
     );

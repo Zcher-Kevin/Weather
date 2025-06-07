@@ -5,7 +5,7 @@ import { WeatherDataContext } from '../components/Data';
 import { fetchWeatherApi } from 'openmeteo';
 import '../Css/Search.css'; 
 
-const Search = ({ isOpen, toggleSearchModal}) => {
+const Search = ({ isOpen, toggleSearchModal, initialQuery}) => {
     const { fetchWeatherData } = useContext(WeatherDataContext);
     const [ search, setSearch ] = useState(initialQuery || '');
     const [ cityLookup, setCityLookup ] = useState([]);
@@ -61,6 +61,7 @@ const Search = ({ isOpen, toggleSearchModal}) => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         className='search-input'
+                        autoFocus
                     />
                 </div>
             </div>
