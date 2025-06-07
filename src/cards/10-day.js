@@ -1,1 +1,0 @@
-// This card is used to show the daily weather data for the next 10 days.

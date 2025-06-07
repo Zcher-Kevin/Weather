@@ -1,24 +1,52 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Data from './components/Data';
+import SearchBar from './components/SearchBar';
+import Search from './pages/Search';
+import Main from './pages/Main';
+import Hourly from './pages/Hourly';
+import TenDay from './pages/Tenday';
+import UV from './pages/UV';
+import Wind from './pages/Wind';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const toggleSearchModal = () => {
+    setIsSearchModalOpen(!isSearcuModalOpen);
+    if (!isSearchModalOpen) {
+      setSearchQuery(''); // Reset search query when opening the modal
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Data initialCity="London">
+      <div className='app'>
+        <SearchBar toggleSearchModal={toggleSearchModal}
+          setSearchQuery={setSearchQuery} />
+        <div className='content'>
+          <div className='left-panel'>
+            <Main />
+          </div>
+          <div className='right-panel'>
+            <div className="right-item">
+              <Hourly />
+            </div>
+            <div className="right-item">
+              <TenDay />
+            </div>
+            <div className="right-item">
+              <UV />
+            </div>
+            <div className="right-item">
+              <Wind />
+            </div>
+          </div>
+        </div>
+        <Search isOpen={isSearchModalOpen} toggleSearchModal={toggleSearchModal} initialQuery={searchQuery} />
+      </div>
+    </Data> 
   );
 }
 

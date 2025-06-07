@@ -1,10 +1,38 @@
 // This card is used to show the current weather data ( Temperature ...)
 
-import React, { useContext, useState} from 'react';
+import React, { useContext} from 'react';
 import { WeatherDataContext } from '../components/Data';
 import '../Css/Main.css';
 
 const Main = () => {
-    const { weatherData, currentTemperature, error, fetchWeatherData} = useContext(WeatherDataContext);
-    
+    const { weatherData, currentTemperature, error} = useContext(WeatherDataContext);
+    const daily = weatherData?.daily || {};
+
+    return (
+        <div className='main-container'>
+            {error && <p className='error'>{error}</p>}
+            {weatherData && (
+                <>
+                    <div className='current-temp'>
+                        <h2>Current Temperature</h2>
+                        <h1>{currentTemperature !== null ? `${currentTemperature}°C`: 'N/A'}</h1>
+                        <p>{weatherData?.latiture}°N, {weatherData?.longitude}°E</p>
+                    </div>
+                    <div className='mini-forecast'>
+                        <h3>10-day</h3>
+                        <div className="forecast-list">
+                            {daily.time?.slice(0, 5).map((time, index) => (
+                                <div key={index} className="forecast-item">
+                                <p>{new Date(time).toLocaleDateString('en-US', { weekday: 'short' })}</p>
+                                <p>{daily.temperature_2m_max?.[index] || 'N/A'}°C / {daily.temperature_2m_min?.[index] || 'N/A'}°C</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </>
+            )}
+        </div>
+    )
 }
+
+export default Main;
