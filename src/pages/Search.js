@@ -95,3 +95,5 @@ const Search = ({ isOpen, toggleSearchModal}) => {
         </div>
     )
 }
+
+export default Search;
