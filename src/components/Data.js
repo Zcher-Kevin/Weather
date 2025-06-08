@@ -1,68 +1,56 @@
-// Description:
-// Main usage: This component fetches and stores the data from the API.
-// further description will be added later.
-
-import React, {createContext, useState, useEffect} from 'react';
-import { fetchWeatherApi} from 'openmeteo';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const WeatherDataContext = createContext();
 
-const Data = ({ children, initalCity = 'London' }) => {
-    const [weatherData, setWeatherData] = useState(null);
-    const [currentTemperature, setCurrentTemperature] = useState(null);
-    const [error, setError] = useState(null);
-    const [city, setCity] = useState(initalCity);
-    const [lastCity, setLastCity] = useState(null);
+const Data = ({ children, initialCity = 'London' }) => {
+  const [weatherData, setWeatherData] = useState(null);
+  const [currentTemperature, setCurrentTemperature] = useState(null);
+  const [error, setError] = useState(null);
+  const [city, setCity] = useState(initialCity);
+  const [lastCity, setLastCity] = useState(null);
 
-    const fetchWeatherData = async (cityName) => {
-        if ( lastCity === cityName && weatherData) {
-            return;
-        }
-
-        try {
-        // Geocode city name to latitude and longitude 
-        // (using the searching function provided by the API)
-        const geoResponse = await fetchWeatherApi('https://geocoding-api.open-meteo.com/v1/search', {
-            query: cityName,
-            limit: 1
-        });
-        const {latitude, longitude} = geoResponse[0] || {
-            latitude: 51.5074, longitude: -0.1278 // Default to London if no results
-        };
-
-        const params = {
-            latitude,
-            longitude,
-            current: 'temperature_2m, wind_speed_10m, wind_direction_10m, uv_index',
-            hourly: 'temperature_2m, precipitation, uv_index, wind_speed_10m',
-            daily: 'weather_code, temperature_2m_max, temperature_2m_min, uv_index_max, wind_speed_10m_max',
-            forecast_days: 10,
-            timezone: 'auto',
-        };
-
-        const response = await fetchWeatherApi('https://api.open-meteo.com/v1/forecast', params);
-        const data = response[0];
-
-        setWeatherData(data);
-        setCurrentTemperature(data.current?.temperature_2m || null);
-        setLastCity(cityName);
-        setError(null);
-    } catch (err) {
-        setError(err.message || 'Failed to fetch weather data');
-        setWeatherData(null);
-        setCurrentTemperature(null);
-        }
+  const fetchWeatherData = async (cityName) => {
+    if (lastCity === cityName && weatherData) {
+      return;
     }
-    
-    useEffect(() => {
-        fetchWeatherData(city);
-    }, [city]);
 
-    return (
-        <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity }}>
-            {children}
-        </WeatherDataContext.Provider>
-    );
-}
+    try {
+      // Geocode city name to latitude and longitude
+      const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1&format=json`);
+      const geoData = await geoResponse.json();
+
+      if (!geoData.results || geoData.results.length === 0) {
+        throw new Error('No location data found for ' + cityName);
+      }
+      const { latitude, longitude } = geoData.results[0];
+
+      // Fetch weather forecast
+      const forecastResponse = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,wind_direction_10m,uv_index&hourly=temperature_2m,precipitation,uv_index,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,wind_speed_10m_max&forecast_days=10&timezone=auto&format=json`
+      );
+      const forecastData = await forecastResponse.json();
+
+      setWeatherData(forecastData);
+      setCurrentTemperature(forecastData.current?.temperature_2m || null);
+      setLastCity(cityName);
+      setError(null);
+    } catch (err) {
+      console.error('Fetch weather data error:', err.message);
+      setError(err.message || 'Failed to fetch weather data');
+      setWeatherData(null);
+      setCurrentTemperature(null);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeatherData(city);
+  }, [city]);
+
+  return (
+    <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity }}>
+      {children}
+    </WeatherDataContext.Provider>
+  );
+};
 
 export default Data;
