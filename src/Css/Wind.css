@@ -1,0 +1,23 @@
+.wind-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    height: 100%;
+}
+
+.wind-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.wind-container p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.error {
+    color: red;
+}

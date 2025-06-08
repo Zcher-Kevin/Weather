@@ -1,0 +1,36 @@
+.ten-day-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    height: 100%;
+}
+
+.ten-day-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.ten-day-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ten-day-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.ten-day-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.error {
+    color: red;
+}
