@@ -3,6 +3,7 @@
     border-radius: 8px;
     padding: 20px;
     color: white;
+    width: 520px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -39,4 +40,44 @@
 
 .error {
     color: red;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .main-container {
+    width: 70%;
+    padding: 15px;
+  }
+  .current-temp h1 {
+    font-size: 36px;
+  }
+  .current-temp p {
+    font-size: 14px;
+  }
+  .mini-forecast h3 {
+    font-size: 18px;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+  .main-container {
+    padding: 10px;
+  }
+  .current-temp h1 {
+    font-size: 24px;
+  }
+  .current-temp p {
+    font-size: 12px;
+  }
+  .mini-forecast h3 {
+    font-size: 16px;
+  }
+  .forecast-list {
+    gap: 3px;
+  }
+  .forecast-item {
+    padding: 3px 0;
+    font-size: 12px;
+  }
 }

@@ -23,6 +23,7 @@
 .hourly-item {
     text-align: center;
     min-width: 60px;
+    flex-shrink: 0;
 }
 
 .hourly-item p {
@@ -32,4 +33,38 @@
 
 .error {
     color: red;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .hourly-container {
+    padding: 8px;
+  }
+  .hourly-container h2 {
+    font-size: 16px;
+  }
+  .hourly-item {
+    min-width: 50px;
+  }
+  .hourly-item p {
+    font-size: 12px;
+    margin: 3px 0;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+  .hourly-container {
+    padding: 5px;
+  }
+  .hourly-container h2 {
+    font-size: 14px;
+  }
+  .hourly-item {
+    min-width: 40px;
+  }
+  .hourly-item p {
+    font-size: 10px;
+    margin: 2px 0;
+  }
 }

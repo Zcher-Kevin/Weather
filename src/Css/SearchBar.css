@@ -1,5 +1,4 @@
 .search-bar {
-    width: 100%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
@@ -18,18 +17,13 @@
     padding: 8px;
     border: none;
     border-radius: 4px;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-size: 16px;
 }
 
 .search-input::placeholder {
     color: #ccc;
-}
-
-.add-button {
-    padding: 8px;
-    cursor: pointer;
 }
 
 .icon-small {

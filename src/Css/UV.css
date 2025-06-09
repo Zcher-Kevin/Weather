@@ -21,3 +21,31 @@
 .error {
     color: red;
 }
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .uv-container {
+    padding: 8px;
+  }
+  .uv-container h2 {
+    font-size: 16px;
+  }
+  .uv-container p {
+    font-size: 12px;
+    margin: 3px 0;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+  .uv-container {
+    padding: 5px;
+  }
+  .uv-container h2 {
+    font-size: 14px;
+  }
+  .uv-container p {
+    font-size: 10px;
+    margin: 2px 0;
+  }
+}
