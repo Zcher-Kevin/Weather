@@ -16,23 +16,22 @@ body {
 }
 
 .app {
-    margin: 20px auto;
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 90%;
-    height: 92%;
+    height: 90%;
     border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .content {
     display: flex;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    margin-right: 0.5%;
     align-items: center;
     gap: 20px;
     flex-direction: row;
@@ -43,6 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .right-panel {
@@ -50,15 +50,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+    min-height: 100%;
 }
 
 .right-item {
-    flex: 1;
     width: 55%; /* Adjusted for better responsiveness */
-    height: 40%; /* Added max-height for scrollable content */
+    min-height: 50%; /* Added max-height for scrollable content */
     overflow-x: auto;
     border-radius: 8px;
-    padding: 10px;
     color: white;
 }
 
@@ -72,6 +72,9 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 0.4%;
   }
 
   .left-panel {
@@ -82,10 +85,15 @@ body {
   }
 
   .right-panel {
-    gap: 10px;
+    display: flex;
+    justify-content: center;
   }
 
   .right-item {
     max-width: 100%; 
+    height: 40%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
   }
 }
