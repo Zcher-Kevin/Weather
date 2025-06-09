@@ -16,7 +16,16 @@ const Main = () => {
             <h1>{currentTemperature !== null ? `${currentTemperature}°C` : 'N/A'}</h1>
             <p>{weatherData?.latitude}°N, {weatherData?.longitude}°E</p>
           </div>
-          <div className='mini-forecast'>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Main;
+
+/*
+ * <div className='mini-forecast'>
             <h3>10-day</h3>
             <div className="forecast-list">
               {daily.time?.slice(0, 5).map((time, index) => (
@@ -27,10 +36,4 @@ const Main = () => {
               ))}
             </div>
           </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-export default Main;
+ */
