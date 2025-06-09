@@ -27,3 +27,6 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pack
+
+.git/
+*.pack
