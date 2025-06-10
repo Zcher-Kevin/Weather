@@ -30,3 +30,4 @@ npm-debug.log*
 
 .git/
 *.pack
+index.pack*
