@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    font-size: 100%;
 }
 
 .app {
@@ -30,7 +31,7 @@ body {
     display: flex;
     margin: 5%;
     align-items: center;
-    gap: 2%;
+    gap: 3%;
     flex-direction: row;
     justify-content: space-between;
 }

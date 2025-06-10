@@ -6,7 +6,7 @@
     height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    margin-bottom: 3%;
 }
 
 .current-temp h1 {
