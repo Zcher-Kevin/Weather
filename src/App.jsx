@@ -69,11 +69,13 @@ const App = () => {
             <div className="right-item">
               <TenDay />
             </div>
-            <div className="right-item">
-              <UV />
-            </div>
-            <div className="right-item">
-              <Wind />
+            <div className="smaller-item-list">
+              <div className="smaller-item">
+                <UV />
+              </div>  
+              <div className="smaller-item">
+                <Wind />
+              </div>
             </div>
           </div>
         </div>

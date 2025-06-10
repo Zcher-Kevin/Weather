@@ -1,9 +1,10 @@
 .hourly-container {
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
     padding: 10px;
     color: white;
+    width: 100%;
     height: 100%;
+    border-radius: 15px;
 }
 
 .hourly-container h2 {
@@ -22,8 +23,11 @@
 
 .hourly-item {
     text-align: center;
-    min-width: 60px;
-    flex-shrink: 0;
+    min-width: 10%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow-x: auto;
 }
 
 .hourly-item p {

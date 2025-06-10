@@ -1,15 +1,12 @@
 .main-container {
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 20px;
     color: white;
-    width: 520px;
     height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 .current-temp h1 {
