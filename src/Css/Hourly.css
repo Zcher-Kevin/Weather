@@ -3,6 +3,7 @@
     color: white;
     border-radius: 20px;
     padding: 2%;
+    width: 100%;
 }
 
 .hourly-container h2 {
@@ -43,15 +44,48 @@
 
 /* Smaller screen */
 @media (max-width: 768px) {
-  .hourly-container h2 {
-    font-size: 16px;
+  .hourly-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 20px;
+    padding: 2%;
+    width: 100%;
+}
+
+.hourly-container h2 {
+    font-size: 18px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+    margin-left: 3%;
+    margin-right: 3%;
   }
+
+  .hourly-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
   .hourly-item {
-    min-width: 15%;
-    min-height: 75px;
+    text-align: center;
+    min-width: 20%;
+    min-height: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow-x: auto;
+    gap: 5px;
   }
+
   .hourly-item p {
-    font-size: 12px;
-    margin: 3px 0;
+    margin: 5px 0;
+    font-size: 14px;
   }
+
+  .error {
+    color: red;
+  }
+
 }

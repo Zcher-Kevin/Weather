@@ -58,22 +58,25 @@ const App = () => {
       <div className='app'>
         <div className='content'>
           <div className='left-panel'>
-            <SearchBar toggleSearchModal={toggleSearchModal}
-              setSearchQuery={setSearchQuery} />
-            <Main />
+            <div className='search-bar'>
+              <SearchBar toggleSearchModal={toggleSearchModal} setSearchQuery={setSearchQuery} />
+            </div>
+            <div className='main-item'>
+              <Main />
+            </div>
           </div>
           <div className='right-panel'>
-            <div className="right-item">
+            <div className="hourly-item">
               <Hourly />
             </div>
-            <div className="right-item">
+            <div className="tenday-item">
               <TenDay />
             </div>
             <div className="smaller-item-list">
-              <div className="smaller-item">
+              <div className="uv-item">
                 <UV />
               </div>  
-              <div className="smaller-item">
+              <div className="wind-item">
                 <Wind />
               </div>
             </div>

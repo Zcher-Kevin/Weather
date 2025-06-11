@@ -6,7 +6,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 3%;
 }
 
 .current-temp h1 {
@@ -44,8 +43,7 @@
 /* Smaller screen */
 @media (max-width: 768px) {
   .main-container {
-    width: auto;
-    height: 50%;
+    height: auto;
     justify-content: center;
     
   }
