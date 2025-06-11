@@ -28,3 +28,17 @@
     height: 24px;
     fill: white;
 }
+
+/* Smaller screen */
+@media (max-width: 768px) {
+    .search-bar {
+        padding: 5px;
+    }
+    .search-input {
+        font-size: 1.2em;
+    }
+    .icon-small {
+        width: 20px;
+        height: 20px;
+    }
+}

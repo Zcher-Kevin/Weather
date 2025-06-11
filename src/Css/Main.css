@@ -1,9 +1,9 @@
 .main-container {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    padding: 20px;
+    padding: 2%;
     color: white;
-    height: 600px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 3%;
@@ -41,7 +41,7 @@
     color: red;
 }
 
-/* Medium screens (tablets) */
+/* Smaller screen */
 @media (max-width: 768px) {
   .main-container {
     width: auto;
@@ -57,28 +57,5 @@
   }
   .mini-forecast h3 {
     font-size: 18px;
-  }
-}
-
-/* Small screens (mobile) */
-@media (max-width: 480px) {
-  .main-container {
-    padding: 10px;
-  }
-  .current-temp h1 {
-    font-size: 24px;
-  }
-  .current-temp p {
-    font-size: 12px;
-  }
-  .mini-forecast h3 {
-    font-size: 16px;
-  }
-  .forecast-list {
-    gap: 3px;
-  }
-  .forecast-item {
-    padding: 3px 0;
-    font-size: 12px;
   }
 }

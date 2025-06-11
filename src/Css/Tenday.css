@@ -1,9 +1,8 @@
 .ten-day-container {
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    padding: 10px;
     color: white;
-    height: 100%;
+    width: 100%;
+    border-radius: 20px;
 }
 
 .ten-day-container h2 {
@@ -34,7 +33,7 @@
     color: red;
 }
 
-/* Medium screens (tablets) */
+/* Smaller screen */
 @media (max-width: 768px) {
   .ten-day-container {
     padding: 8px;
@@ -47,24 +46,5 @@
   }
   .ten-day-item p {
     font-size: 12px;
-  }
-}
-
-/* Small screens (mobile) */
-@media (max-width: 480px) {
-  .ten-day-container {
-    padding: 5px;
-  }
-  .ten-day-container h2 {
-    font-size: 14px;
-  }
-  .ten-day-item {
-    padding: 2px 0;
-  }
-  .ten-day-item p {
-    font-size: 10px;
-  }
-  .ten-day-list {
-    gap: 3px;
   }
 }
