@@ -1,15 +1,16 @@
 .ten-day-container {
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    width: 100%;
     border-radius: 20px;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .ten-day-container h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #444;
+    font-size: 18px;
+    border-bottom: 1px solid #ffffff;
     padding-bottom: 5px;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .ten-day-list {
@@ -17,11 +18,18 @@
     overflow-x: auto;
     gap: 10px;
     padding-bottom: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .ten-day-item {
     text-align: center;
-    min-width: 60px;
+    min-width: 20%;
+    min-height: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow-x: auto;
+    gap: 5px;
 }
 
 .ten-day-item p {

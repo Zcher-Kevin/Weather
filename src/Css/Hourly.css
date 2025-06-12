@@ -1,9 +1,7 @@
 .hourly-container {
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border-radius: 20px;
-    padding: 2%;
-    width: 100%;
+    padding: 1%;
 }
 
 .hourly-container h2 {
@@ -45,7 +43,6 @@
 /* Smaller screen */
 @media (max-width: 768px) {
   .hourly-container {
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border-radius: 20px;
     padding: 2%;
