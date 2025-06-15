@@ -12,7 +12,7 @@ this weather website is using the open-source api :
 
 3. Fixing the error of the search system of the cities ❌
 
-4. Hourly item needed to be fixed ❌
+4. Hourly item needed to be fixed ✅
 
 5. the structure of the item need to be fixed ❌
 
