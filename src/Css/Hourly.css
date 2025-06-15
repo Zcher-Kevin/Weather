@@ -1,17 +1,18 @@
-.hourly-containe {
+.hourly-container {
   color: white;
   border-radius: 20px;
-  padding: 2%;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
 }
 
-.hourly-container h2 {
-  font-size: 18px;
+.hourly-container h3 {
+  font-size: 24px;
   border-bottom: 1px solid #ffffff;
-  padding-bottom: 5px;
+  padding: 2%;
+  padding-bottom: 0%;
   margin-left: 4%;
   margin-right: 4%;
+  display: flex;
 }
 
 .hourly-list {
@@ -23,17 +24,17 @@
   margin-right: 4%;
 }
 
-.hourly-item {
+.hourly-items {
   text-align: center;
   min-width: 20%;
-  min-height: 150px;
+  min-height: 100px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   overflow-x: auto;
   gap: 5px;
 }
 
-.hourly-item p {
+.hourly-items p {
   margin: 5px 0;
   font-size: 14px;
 }
@@ -51,8 +52,8 @@
     width: 100%;
 }
 
-  .hourly-container h2 {
-    font-size: 18px;
+  .hourly-container h3 {
+    font-size: 15px;
     border-bottom: 1px solid #ffffff;
     padding-bottom: 5px;
     margin-left: 4%;
