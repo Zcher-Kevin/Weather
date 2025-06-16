@@ -21,8 +21,8 @@
   gap: 20px; /* Gap between columns */
   width: 96%;
   height: 90%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 3%;
+  margin-right: 3%;
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .divider {
-  width: 5%;
+  width: 3%;
   height: 100%;
 }
 
@@ -85,6 +85,7 @@
 .smaller-item-list {
   width: 100%;
   height: 29%;
+  margin-top: 2%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -120,13 +121,12 @@
     justify-content: center;
     gap: 0%; /* Consistent gap */
     margin: 0%;
-    overflow-y: auto;
+    height: 90%;
     overflow-x: hidden;
   }
 
   .left-panel {
     width: 100%;
-    height: 40%;
     max-height: 40%;
     margin: 0%;
   }
@@ -138,6 +138,8 @@
   .right-panel {
     width: 100%;
     margin: 0%;
+    height: 100%;
+    overflow-y: scroll;
   }
 
   .search-bar {
@@ -151,17 +153,21 @@
   .hourly-item {
     width: 100%;
     color: white;
+    min-height: 47%;
   }
 
   .tenday-item {
     width: 100%;
     color: white;
+    min-height: 47%;
   }
 
   .smaller-item-list {
+    margin-top: 2%;
     width: 100%;
     flex-direction: row; /* Stack UV and Wind */
     gap: 2%; /* Consistent gap between UV and Wind */
+    min-height: 45%;
   }
 
   .uv-item {
