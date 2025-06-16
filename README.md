@@ -16,7 +16,7 @@ this weather website is using the open-source api :
 
 5. the structure of the item need to be fixed ✅
 
-6. store the user input in data base
+6. store the user input in data base ❌
 
 # Pictures
 ![Full Screen](./src/img/full-screen-content.png)
