@@ -20,3 +20,11 @@ this weather website is using the open-source api :
 ![Full Screen](./src/img/full-screen-content.png)
 
 ![Smaller Screen](./src/img/smaller-screen-content.png)
+
+# Problem of my website now
+
+1. item' size is not user-friendly to the phone user 
+
+2. hourly items is not started from current time but the start of that day
+
+3. mostly words, need to input picture for easily use 
