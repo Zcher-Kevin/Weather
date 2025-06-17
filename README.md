@@ -10,7 +10,7 @@ this weather website is using the open-source api :
 
 2. with different size of the screen, it come with a different structure of the content ✅
 
-3. Fixing the error of the search system of the cities ❌
+3. Fixing the error of the search system of the cities ✅
 
 4. Hourly item needed to be fixed ✅
 
