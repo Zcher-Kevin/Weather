@@ -9,22 +9,6 @@
     flex: 1;
 }
 
-.search-input {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 1.5%;
-}
-
-.search-input::placeholder {
-    color: #ccc;
-}
-
-.icon-small {
-    width: 24px;
-    height: 24px;
-    fill: white;
-}
-
 /* Smaller screen */
 @media (max-width: 756px) {
     .search-bar {
@@ -33,18 +17,5 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .search-input {
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        font-size: 1.5%;
-    }
-
-    .icon-small {
-        width: 24px;
-        height: 24px;
-        fill: white;
     }
 }
