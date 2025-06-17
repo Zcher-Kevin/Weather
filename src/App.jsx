@@ -27,7 +27,7 @@ const App = () => {
         <div className='content'>
           <div className='left-panel'>
             <div className='search-bar'>
-              <SearchBar toggleSearchModal={toggleSearchModal} setSearchQuery={setSearchQuery} />
+              <SearchBar toggleSearchModal={toggleSearchModal} />
             </div>
             <div className='main-item'>
               <Main />
