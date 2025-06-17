@@ -14,31 +14,65 @@ const Data = ({ children, initialCity = 'London' }) => {
       return;
     }
 
+    setError(null); // Reset error on new fetch
+    setWeatherData(null);
+    setCurrentTemperature(null);
+
     try {
-      // Geocode city name to latitude and longitude
-      const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1&format=json`);
-      const geoData = await geoResponse.json();
+      // Geocode using Nominatim
+      let geoData;
+      const nominatimResponse = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cityName)}&limit=1`
+      );
+      geoData = await nominatimResponse.json();
+      console.log('Nominatim Response:', geoData);
 
-      if (!geoData.results || geoData.results.length === 0) {
-        throw new Error('No location data found for ' + cityName);
+      if (!geoData || geoData.length === 0) {
+        // Fallback to Open-Meteo geocoding
+        const geoResponse = await fetch(
+          `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1&format=json`
+        );
+        const fallbackGeoData = await geoResponse.json();
+        console.log('Open-Meteo Fallback Response:', fallbackGeoData);
+
+        if (!fallbackGeoData.results || fallbackGeoData.results.length === 0) {
+          throw new Error('No location data found for ' + cityName);
+        }
+        geoData = fallbackGeoData;
       }
-      const { latitude, longitude } = geoData.results[0];
 
-      // Fetch weather forecast
+      // Extract coordinates
+      const locationData = geoData.results ? geoData.results[0] : geoData[0];
+      console.log('Location Data:', locationData);
+      let latitude, longitude;
+      if (locationData.lat && locationData.lon) {
+        latitude = locationData.lat;
+        longitude = locationData.lon;
+      } else if (locationData.latitude && locationData.longitude) {
+        latitude = locationData.latitude;
+        longitude = locationData.longitude;
+      } else {
+        throw new Error('Invalid coordinate data in location response');
+      }
+      console.log('Extracted Coordinates:', { latitude, longitude });
+
+      // Fetch weather forecast using Open-Meteo
       const forecastResponse = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,wind_direction_10m,uv_index&hourly=temperature_2m,precipitation,uv_index,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,wind_speed_10m_max&forecast_days=10&timezone=auto&format=json`
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,uv_index,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,uv_index,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,wind_speed_10m_max&forecast_days=10&timezone=auto&format=json`
       );
       const forecastData = await forecastResponse.json();
+      console.log('Weather Forecast Response:', forecastData);
+
+      if (!forecastData.current && !forecastData.hourly && !forecastData.daily) {
+        throw new Error('No weather data available in forecast');
+      }
 
       setWeatherData(forecastData);
-      setCurrentTemperature(forecastData.current?.temperature_2m || null);
+      setCurrentTemperature(forecastData.current?.temperature_2m || forecastData.hourly?.temperature_2m[0] || null);
       setLastCity(cityName);
-      setError(null);
     } catch (err) {
       console.error('Fetch weather data error:', err.message);
       setError(err.message || 'Failed to fetch weather data');
-      setWeatherData(null);
-      setCurrentTemperature(null);
     }
   };
 

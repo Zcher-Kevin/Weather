@@ -19,20 +19,46 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
 
     const fetchCities = async () => {
       try {
-        const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(search)}&count=10&format=json`);
+        const query = encodeURIComponent(search);
+        const url = `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=10&language=en&format=json`;
+
+
+        const response = await fetch(url);
+        console.log('Fetch Response Status:', response.status); // Check HTTP status
         const data = await response.json();
+        console.log('Open-Meteo Geocoding Response:', data);
 
         if (data.results && Array.isArray(data.results)) {
-          setCityLookup(data.results);
-        } else if (data.error) {
-          console.error('API Error:', data.error);
-          setCityLookup([]);
+          console.log('Raw Results Data:', data.results); // Log raw data
+          let filteredCities = data.results;
+
+          // Special handling for "Hong Kong" to limit to the primary entry
+          if (search.toLowerCase().includes('hong kong')) {
+            const primaryCity = data.results.reduce((primary, city) => {
+              console.log('City Population Check:', city.name, city.population); // Log population if available
+              return (primary.population || 0) > (city.population || 0) ? primary : city;
+            }, data.results[0] || {});
+            filteredCities = [primaryCity];
+            console.log('Selected Primary City:', primaryCity);
+          } else {
+            // For other searches, deduplicate by name
+            filteredCities = data.results.reduce((unique, city) => {
+              console.log('Deduplication Check:', city.name); // Log each city checked
+              if (!unique.some((item) => item.name === city.name)) {
+                unique.push(city);
+              }
+              return unique;
+            }, []);
+            console.log('Filtered Cities After Deduplication:', filteredCities);
+          }
+
+          setCityLookup(filteredCities);
         } else {
-          console.log('No valid city data returned:', data);
+          console.log('No valid results data:', data);
           setCityLookup([]);
         }
       } catch (err) {
-        console.error('Error fetching cities:', err.message);
+        console.error('Fetch Error:', err.message);
         setCityLookup([]);
       }
     };
@@ -73,8 +99,8 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
 
       {search.length <= 1 && (
         <div className="search-placeholder">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             className="icon-medium"
           >
@@ -92,7 +118,7 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
               className="city-result"
               onClick={() => handleCitySelect(city.name)}
             >
-              {city.name}, {city.country}
+              {city.name} 
             </div>
           ))
         ) : (
