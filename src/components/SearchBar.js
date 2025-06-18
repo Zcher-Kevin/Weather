@@ -13,17 +13,15 @@ const SearchBar = ({ toggleSearchModal }) => {
     };
 
     return (
-        <div className='search-bar'>
-            <div className="search-input-wrapper">
-                <input
-                    type="text"
-                    value={inputedCity}
-                    onChange={handleInputChange}
-                    onClick={handleClick}
-                    placeholder="Search for city"
-                    className="search-input"
-                />
-            </div>
+        <div className="search-input-wrapper">
+            <input
+                type="text"
+                value={inputedCity}
+                onChange={handleInputChange}
+                onClick={handleClick}
+                placeholder="Search for city"
+                className="search-input"
+            />
         </div>
     );
 };

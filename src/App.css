@@ -20,9 +20,8 @@
   display: flex;
   gap: 20px; /* Gap between columns */
   width: 96%;
-  height: 90%;
-  margin-left: 3%;
-  margin-right: 3%;
+  height: 85%;
+  margin: 6% 3% 4% 3%; /* Top, Right, Bottom, Left */
   overflow: hidden;
 }
 
@@ -30,7 +29,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 3%;
   width: 40%;
   height: 100%;
 }
@@ -45,26 +44,32 @@
   display: flex;
   flex-direction: column;
   gap: 3%; /* Gap between items in right panel */
-  width: 55%;
+  width: 57%;
   height: 100%;
 }
+
 /* Search bar need to be fixed in the future */
 .search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Dark background */
+    padding: 2px 5px; /* Thin padding */
+    border-radius: 25px; /* Uniform rounding for all corners */
+    height: 5%; /* Thin height */
+    overflow: hidden; /* Ensures inner elements don't break the radius */
 }
 
 .main-item {
+  flex: 1; /* Takes available space */
   width: 100%;
   border-radius: 20px;
-  height: 100%;
+  height: 92%;
   background-color: transparent;
   overflow-y: hidden;
 }
 
 .hourly-item {
+  flex: 1; /* Takes available space */
   width: 100%;
   height: 34%;
   border-radius: 20px;
@@ -74,6 +79,7 @@
 }
 
 .tenday-item {
+  flex: 1; /* Takes available space */
   width: 100%;
   height: 34%;
   border-radius: 20px;
@@ -83,8 +89,9 @@
 }
 
 .smaller-item-list {
+  flex: 1; /* Takes available space */
   width: 100%;
-  height: 29%;
+  height: 25%;
   margin-top: 2%;
   display: flex;
   flex-direction: row;
@@ -143,7 +150,7 @@
   }
 
   .search-bar {
-    width: 100%;
+    height: 10%;
   }
 
   .main-item {
