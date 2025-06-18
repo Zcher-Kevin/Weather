@@ -12,6 +12,11 @@
   font-size: 48px;
 }
 
+.current-temp h3 {
+  font-size: 30px;
+  color: #ccc;
+}
+
 .current-temp h1 {
   font-size: 60px;
 }
@@ -36,6 +41,11 @@
 
   .current-temp h2 {
     font-size: 24px;
+    padding-left: 2%;
+  }
+
+  .current-temp h3 {
+    font-size: 18px;
     padding-left: 2%;
   }
 

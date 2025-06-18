@@ -3,7 +3,7 @@ import { WeatherDataContext } from '../components/Data';
 import '../Css/Main.css';
 
 const Main = () => {
-  const { weatherData, currentTemperature, error } = useContext(WeatherDataContext);
+  const { weatherData, currentTemperature, city, error } = useContext(WeatherDataContext);
   const daily = weatherData?.daily || {};
 
   return (
@@ -13,6 +13,7 @@ const Main = () => {
         <>
           <div className='current-temp'>
             <h2>Current Temperature</h2>
+            <h3>Current Location: {city || 'Loading...'}</h3>
             <h1>{currentTemperature !== null ? `${currentTemperature}°C` : 'N/A'}</h1>
             <p>{weatherData?.latitude}°N, {weatherData?.longitude}°E</p>
           </div>

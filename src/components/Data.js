@@ -11,6 +11,8 @@ const Data = ({ children, initialCity = 'London' }) => {
 
   const fetchWeatherData = async (cityName) => {
     if (lastCity === cityName && weatherData) {
+      setCity(cityName);
+      setLastCity(cityName);
       return;
     }
 
@@ -81,7 +83,7 @@ const Data = ({ children, initialCity = 'London' }) => {
   }, [city]);
 
   return (
-    <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity }}>
+    <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity, city }}>
       {children}
     </WeatherDataContext.Provider>
   );
