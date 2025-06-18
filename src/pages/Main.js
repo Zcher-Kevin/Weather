@@ -4,7 +4,6 @@ import '../Css/Main.css';
 
 const Main = () => {
   const { weatherData, currentTemperature, city, error } = useContext(WeatherDataContext);
-  const daily = weatherData?.daily || {};
 
   return (
     <div className='main-container'>
