@@ -18,11 +18,11 @@ const App = () => {
 
   return (
     <Data initialCity="London">
-      <AppContent
-        isSearchModalOpen={isSearchModalOpen}
-        toggleSearchModal={toggleSearchModal}
-        searchQuery={searchQuery}
-      />
+        <AppContent
+          isSearchModalOpen={isSearchModalOpen}
+          toggleSearchModal={toggleSearchModal}
+          searchQuery={searchQuery}
+        />
     </Data>
   );
 };

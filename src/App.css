@@ -4,29 +4,64 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(./img/background-raining.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Ensure proper layering context */
+  z-index: 0; /* Base layer */
 }
 * {
   font-family: 'Segoe UI', Times, sans-serif;
 }
+
 .app {
   width: 90%;
   height: 90%;
   border-radius: 30px;
-  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  
+  overflow: hidden;
+  z-index: 1; /* Above #root background */
+}
+
+/* Apply overlay to all children except .main-container */
+.app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Overlay */
+  z-index: 1; /* Below .main-container */
+  pointer-events: none; /* Avoids interfering with interactions */
+}
+
+
+/* Ensure .main-item and its children inherit this exclusion */
+.main-item {
+  position: relative;
+  z-index: 2;
+  overflow: visible; /* Allow .main-container to break out */
+}
+
+.loading-screen {
+
 }
 
 .content {
   display: flex;
-  gap: 20px; /* Gap between columns */
+  gap: 20px;
   width: 96%;
   height: 85%;
-  margin: 6% 3% 4% 3%; /* Top, Right, Bottom, Left */
+  margin: 6% 3% 4% 3%;
   overflow: hidden;
+  position: relative;
+  z-index: 2; /* Above .app */
+  background-color: transparent; /* Remove solid background to allow hole */
 }
 
 .left-panel {
@@ -36,6 +71,8 @@
   gap: 3%;
   width: 40%;
   height: 100%;
+  background-color: transparent;
+  position: relative;
 }
 
 .divider {
@@ -47,29 +84,31 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3%; /* Gap between items in right panel */
+  gap: 3%;
   width: 57%;
   height: 100%;
+  background-color: transparent;
 }
 
 /* Search bar need to be fixed in the future */
 .search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #333; /* Dark background */
-    padding: 2px 5px; /* Thin padding */
-    border-radius: 25px; /* Uniform rounding for all corners */
-    height: 5%; /* Thin height */
-    overflow: hidden; /* Ensures inner elements don't break the radius */
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Dark background */
+  padding: 2px 5px; /* Thin padding */
+  border-radius: 25px; /* Uniform rounding for all corners */
+  height: 5%; /* Thin height */
+  overflow: hidden; /* Ensures inner elements don't break the radius */
 }
 
 .main-item {
-  flex: 1; /* Takes available space */
+  flex: 1;
   width: 100%;
   border-radius: 20px;
   height: 92%;
   background-color: transparent;
   overflow-y: hidden;
+  position: relative; /* Ensure proper layering */
 }
 
 .hourly-item {
@@ -151,7 +190,7 @@
     margin: 0%;
     height: 100%;
     overflow-y: scroll;
-    scrollbar-color: #000000 #ffffff; /* Custom scrollbar colors */
+    scrollbar-color: #000000 #494949; /* Custom scrollbar colors */
     scroll-behavior: smooth;
   }
 

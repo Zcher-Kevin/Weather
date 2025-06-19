@@ -33,6 +33,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   overflow-x: auto;
+  scrollbar-color: #000000 #494949;
   gap: 5px;
 }
 
