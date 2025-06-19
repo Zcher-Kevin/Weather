@@ -10,20 +10,21 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
   useEffect(() => {
     setSearch(initialQuery || '');
     if (!initialQuery) {
-      setCityLookup([]); // Clear results when initialQuery is empty
+      setCityLookup([]); // Clear on initial query reset
     }
   }, [initialQuery]);
 
   useEffect(() => {
-    // Clear results if search is empty
+    console.log('Search value changed to:', search); // Debug log
     if (!search) {
       setCityLookup([]);
+      console.log('Cleared cityLookup due to empty search');
       return;
     }
 
-    // Only fetch if search length is 2 or more
     if (search.length < 2) {
       setCityLookup([]);
+      console.log('Cleared cityLookup due to search length < 2');
       return;
     }
 
@@ -87,7 +88,7 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className="icon-small back-button"
+          className="back-button"
           onClick={toggleSearchModal}
         >
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
