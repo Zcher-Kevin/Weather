@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Data from './components/Data';
-import AppContent from './pages/Content'; // New wrapper component
+import AppContent from './pages/AppContent'; // New wrapper component
 import './App.css';
 
 const App = () => {
