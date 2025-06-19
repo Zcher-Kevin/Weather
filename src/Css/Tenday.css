@@ -6,7 +6,7 @@
 }
 
 .ten-day-container h2 {
-  font-size: 24px;
+  font-size: calc(0.75vw + 1vh);
   border-bottom: 1px solid #ffffff;
   padding: 2%;
   padding-bottom: 0%;
@@ -38,7 +38,7 @@
 
 .ten-day-item p {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: calc(0.5vw + 1vh);
 }
 
 .error {
@@ -55,7 +55,7 @@
   }
 
   .ten-day-container h2 {
-    font-size: 15px;
+    font-size: calc(1vw + 1vh);
     border-bottom: 1px solid #ffffff;
     padding-bottom: 5px;
     margin-left: 4%;
@@ -75,7 +75,7 @@
 
   .ten-day-item {
     text-align: center;
-    min-width: 20%;
+    min-width: 25%;
     min-height: 50%;
     border-radius: 8px;
     overflow-x: auto;
@@ -84,6 +84,6 @@
 
   .ten-day-item p {
     margin: 5px 0;
-    font-size: 14px;
+    font-size: calc(1vw + 1vh);
   }
 }

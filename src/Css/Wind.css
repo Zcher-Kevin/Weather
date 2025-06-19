@@ -7,14 +7,14 @@
 }
 
 .wind-container h2 {
-    font-size: 18px;
+    font-size: calc(0.5vw + 1vh);
     margin-bottom: 10px;
     border-bottom: 1px solid #444;
     padding-bottom: 5px;
 }
 
 .wind-container p {
-    font-size: 14px;
+    font-size: calc(0.4vw + 1vh);
     margin: 5px 0;
 }
 
@@ -28,10 +28,10 @@
     padding: 8px;
   }
   .uv-container h2 {
-    font-size: 16px;
+    font-size: calc(1vw + 1vh);
   }
   .uv-container p {
-    font-size: 12px;
+    font-size: calc(1vw + 1vh);
     margin: 3px 0;
   }
 }

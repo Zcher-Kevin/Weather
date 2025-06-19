@@ -39,7 +39,7 @@
 }
 
 .divider {
-  width: 3%;
+  width: 2%;
   height: 100%;
 }
 
@@ -50,8 +50,6 @@
   gap: 3%; /* Gap between items in right panel */
   width: 57%;
   height: 100%;
-  scrollbar-color: #000000 #ffffff; /* Custom scrollbar colors */
-  scroll-behavior: smooth;
 }
 
 /* Search bar need to be fixed in the future */
@@ -153,6 +151,8 @@
     margin: 0%;
     height: 100%;
     overflow-y: scroll;
+    scrollbar-color: #000000 #ffffff; /* Custom scrollbar colors */
+    scroll-behavior: smooth;
   }
 
   .search-bar {

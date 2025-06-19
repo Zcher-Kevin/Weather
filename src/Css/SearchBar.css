@@ -7,8 +7,6 @@
     width: 100%;
     padding: 5px 8px; /* Consistent padding */
     color: #fff; /* White text */
-    font-size: 14px; /* Smaller font */
-    outline: none;
     border-radius: 25px; /* Matches container and wrapper */
     height: 100%; /* Fills the container height */
     box-sizing: border-box; /* Includes padding in width/height calculation */

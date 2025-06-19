@@ -10,7 +10,7 @@ const UV = () => {
     const daily = weatherData?.daily || {};
 
     return (
-        <div className='uv-container'>
+        <div className='uv-contain'>
             <h2>UV Index</h2>
             {error && <p className='error'>{error}</p>}
             {weatherData && (

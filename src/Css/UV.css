@@ -1,4 +1,4 @@
-.uv-container {
+.uv-contain {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     padding: 10px;
@@ -6,15 +6,15 @@
     height: 100%;
 }
 
-.uv-container h2 {
-    font-size: 18px;
+.uv-contain h2 {
+    font-size: calc(0.5vw + 1vh);
     margin-bottom: 10px;
     border-bottom: 1px solid #444;
     padding-bottom: 5px;
 }
 
-.uv-container p {
-    font-size: 14px;
+.uv-contain p {
+    font-size: calc(0.4vw + 1vh);
     margin: 5px 0;
 }
 
@@ -24,14 +24,14 @@
 
 /* Smaller screen */
 @media (max-width: 768px) {
-  .uv-container {
+  .uv-contain {
     padding: 8px;
   }
-  .uv-container h2 {
-    font-size: 16px;
+  .uv-contain h2 {
+    font-size: calc(1vw + 1vh);
   }
-  .uv-container p {
-    font-size: 12px;
+  .uv-contain p {
+    font-size: calc(1vw + 1vh);
     margin: 3px 0;
   }
 }
