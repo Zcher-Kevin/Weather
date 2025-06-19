@@ -9,7 +9,7 @@ const Wind = () => {
     const current = weatherData?.current || {};
 
     return (
-        <div className="wind-container">
+        <div className="wind-contain">
             <h2>Wind</h2>
             {error && <p className="error">{error}</p>}
             {weatherData && (

@@ -1,4 +1,4 @@
-.wind-container {
+.wind-contain {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     padding: 10px;
@@ -6,14 +6,14 @@
     height: 100%;
 }
 
-.wind-container h2 {
+.wind-contain h2 {
     font-size: calc(0.5vw + 1vh);
     margin-bottom: 10px;
     border-bottom: 1px solid #444;
     padding-bottom: 5px;
 }
 
-.wind-container p {
+.wind-contain p {
     font-size: calc(0.4vw + 1vh);
     margin: 5px 0;
 }
@@ -24,13 +24,13 @@
 
 /* Smaller screen */
 @media (max-width: 768px) {
-  .uv-container {
+  .wind-contain {
     padding: 8px;
   }
-  .uv-container h2 {
+  .wind-contain h2 {
     font-size: calc(1vw + 1vh);
   }
-  .uv-container p {
+  .wind-contain p {
     font-size: calc(1vw + 1vh);
     margin: 3px 0;
   }
