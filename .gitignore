@@ -4,8 +4,11 @@ node_modules/
 # Build output
 build/
 dist/
-*.js
-*.css
+# Ignore only generated .js and .css files in build/dist, not source files
+build/*.js
+build/*.css
+dist/*.js
+dist/*.css
 
 # Logs
 *.log
@@ -16,6 +19,8 @@ npm-debug.log*
 
 # Git
 .git/
+*.pack
+index.pack*
 
 # Environment variables
 .env
@@ -27,7 +32,3 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pack
-
-.git/
-*.pack
-index.pack*
