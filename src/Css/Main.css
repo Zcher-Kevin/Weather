@@ -2,11 +2,18 @@
   color: white;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   padding-left: 3%;
 };
+
+.current-temp {
+  display: flex;
+  flex-direction: column;
+  justify-items: space-evenly;
+  height: 100%;
+}
 
 .current-temp h2 {
   font-size: 48px;
@@ -33,29 +40,29 @@
 /* Smaller screen */
 @media (max-width: 768px) {
   .main-container {
-    color: white;
-    border-radius: 20px;
     padding: 0%;
     width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    text-justify: center;
   }
 
-  .current-temp h2 {
-    font-size: 24px;
+  .current-temp {
     padding-left: 2%;
+  }
+  .current-temp h2 {
+    font-size: 32px;
   }
 
   .current-temp h3 {
     font-size: 18px;
-    padding-left: 2%;
   }
 
   .current-temp h1 {
     font-size: 50px;
-    padding-left: 2%;
   }
 
   .current-temp p {
     font-size: 14px;
-    padding-left: 2%;
   }
 }
