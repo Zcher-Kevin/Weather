@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Data from './components/Data';
-import AppContent from './pages/AppContent'; // New wrapper component
+import SearchBar from './components/SearchBar';
+import Search from './pages/Search';
+import AppContent from './pages/AppContent'; // Updated to match the file name
 import './App.css';
 
 const App = () => {
