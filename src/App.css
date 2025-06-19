@@ -5,7 +5,9 @@
   justify-content: center;
   align-items: center;
 }
-
+* {
+  font-family: 'Segoe UI', Times, sans-serif;
+}
 .app {
   width: 90%;
   height: 90%;
