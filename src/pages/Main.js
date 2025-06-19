@@ -23,17 +23,3 @@ const Main = () => {
 };
 
 export default Main;
-
-/*
- * <div className='mini-forecast'>
-            <h3>10-day</h3>
-            <div className="forecast-list">
-              {daily.time?.slice(0, 5).map((time, index) => (
-                <div key={index} className="forecast-item">
-                  <p>{new Date(time).toLocaleDateString('en-US', { weekday: 'short' })}</p>
-                  <p>{daily.temperature_2m_max?.[index] || 'N/A'}°C / {daily.temperature_2m_min?.[index] || 'N/A'}°C</p>
-                </div>
-              ))}
-            </div>
-          </div>
- */

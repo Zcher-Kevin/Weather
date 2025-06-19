@@ -8,14 +8,12 @@ const Data = ({ children, initialCity = 'London' }) => {
   const [error, setError] = useState(null);
   const [city, setCity] = useState(initialCity);
   const [lastCity, setLastCity] = useState(null);
+  const [loading, setloading] = useState(true);
 
   const fetchWeatherData = async (cityName) => {
-    if (lastCity === cityName && weatherData) {
-      setCity(cityName);
-      setLastCity(cityName);
-      return;
-    }
-
+    setloading(true);
+    setCity(cityName);
+    setLastCity(cityName);
     setError(null); // Reset error on new fetch
     setWeatherData(null);
     setCurrentTemperature(null);
@@ -75,6 +73,8 @@ const Data = ({ children, initialCity = 'London' }) => {
     } catch (err) {
       console.error('Fetch weather data error:', err.message);
       setError(err.message || 'Failed to fetch weather data');
+    } finally {
+      setloading(false);
     }
   };
 
@@ -83,7 +83,7 @@ const Data = ({ children, initialCity = 'London' }) => {
   }, [city]);
 
   return (
-    <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity, city }}>
+    <WeatherDataContext.Provider value={{ weatherData, currentTemperature, error, fetchWeatherData, setCity, city, loading}}>
       {children}
     </WeatherDataContext.Provider>
   );
