@@ -9,9 +9,19 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
 
   useEffect(() => {
     setSearch(initialQuery || '');
+    if (!initialQuery) {
+      setCityLookup([]); // Clear results when initialQuery is empty
+    }
   }, [initialQuery]);
 
   useEffect(() => {
+    // Clear results if search is empty
+    if (!search) {
+      setCityLookup([]);
+      return;
+    }
+
+    // Only fetch if search length is 2 or more
     if (search.length < 2) {
       setCityLookup([]);
       return;
@@ -22,28 +32,25 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
         const query = encodeURIComponent(search);
         const url = `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=10&language=en&format=json`;
 
-
         const response = await fetch(url);
-        console.log('Fetch Response Status:', response.status); // Check HTTP status
+        console.log('Fetch Response Status:', response.status);
         const data = await response.json();
         console.log('Open-Meteo Geocoding Response:', data);
 
         if (data.results && Array.isArray(data.results)) {
-          console.log('Raw Results Data:', data.results); // Log raw data
+          console.log('Raw Results Data:', data.results);
           let filteredCities = data.results;
 
-          // Special handling for "Hong Kong" to limit to the primary entry
           if (search.toLowerCase().includes('hong kong')) {
             const primaryCity = data.results.reduce((primary, city) => {
-              console.log('City Population Check:', city.name, city.population); // Log population if available
+              console.log('City Population Check:', city.name, city.population);
               return (primary.population || 0) > (city.population || 0) ? primary : city;
             }, data.results[0] || {});
             filteredCities = [primaryCity];
             console.log('Selected Primary City:', primaryCity);
           } else {
-            // For other searches, deduplicate by name
             filteredCities = data.results.reduce((unique, city) => {
-              console.log('Deduplication Check:', city.name); // Log each city checked
+              console.log('Deduplication Check:', city.name);
               if (!unique.some((item) => item.name === city.name)) {
                 unique.push(city);
               }
@@ -111,7 +118,7 @@ const Search = ({ isOpen, toggleSearchModal, initialQuery }) => {
               className="city-result"
               onClick={() => handleCitySelect(city.name)}
             >
-              {city.name} 
+              {city.name}
             </div>
           ))
         ) : (
