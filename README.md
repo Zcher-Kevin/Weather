@@ -6,7 +6,7 @@ this weather website is using the open-source api :
 
 
 # To-do list ✅ ❌
-1. loading screen for reading the content of the cities ❌
+1. loading screen for reading the content of the cities ✅
 
 2. with different size of the screen, it come with a different structure of the content ✅
 
@@ -16,7 +16,7 @@ this weather website is using the open-source api :
 
 5. the structure of the item need to be fixed ✅
 
-6. store the user input in data base ❌
+6. store the user input in data base ❌ (Local storage)
 
 # Pictures
 ![Full Screen](./src/img/full-screen-content.png)
