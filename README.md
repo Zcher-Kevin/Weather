@@ -23,31 +23,31 @@ this weather website is using the open-source api :
 - Loading state during data retrieval.
 
 ## Project Structure
-weather-dashboard/
-├── src/
-│   ├── components/
-│   │   └── Data.js         # Context for weather data and API fetching
-│   │   └── SearchBar.js    # Search bar component (not fully shown)
-│   ├── pages/
-│   │   └── AppContent.js   # Main layout component
-│   │   └── App.jsx         # App entry point
-│   │   └── Hourly.js       # Hourly forecast component
-│   │   └── Main.js         # Current temperature component
-│   │   └── Search.js       # Search modal component
-│   │   └── Tenday.js       # 10-day forecast component
-│   │   └── UV.js           # UV index component
-│   │   └── Wind.js         # Wind compass component
-│   ├── Css/
-│   │   └── Hourly.css      # Styles for hourly forecast
-│   │   └── Main.css        # Styles for main temperature
-│   │   └── Search.css      # Styles for search modal
-│   │   └── Tenday.css      # Styles for 10-day forecast
-│   │   └── UV.css          # Styles for UV index
-│   │   └── Wind.css        # Styles for wind compass
-│   ├── App.css             # Global app styles
-│   └── index.js            # React DOM rendering
-├── package.json            # Project dependencies and scripts
-└── README.md               # This file
+weather-dashboard/\\
+├── src/\\
+│   ├── components/\\
+│   │   └── Data.js         # Context for weather data and API fetching\\
+│   │   └── SearchBar.js    # Search bar component (not fully shown)\\
+│   ├── pages/\\
+│   │   └── AppContent.js   # Main layout component\\
+│   │   └── App.jsx         # App entry point\\
+│   │   └── Hourly.js       # Hourly forecast component\\
+│   │   └── Main.js         # Current temperature component\\
+│   │   └── Search.js       # Search modal component\\
+│   │   └── Tenday.js       # 10-day forecast component\\
+│   │   └── UV.js           # UV index component\\
+│   │   └── Wind.js         # Wind compass component\\
+│   ├── Css/\\
+│   │   └── Hourly.css      # Styles for hourly forecast\\
+│   │   └── Main.css        # Styles for main temperature\\
+│   │   └── Search.css      # Styles for search modal\\
+│   │   └── Tenday.css      # Styles for 10-day forecast\\
+│   │   └── UV.css          # Styles for UV index\\
+│   │   └── Wind.css        # Styles for wind compass\\
+│   ├── App.css             # Global app styles\\
+│   └── index.js            # React DOM rendering\\
+├── package.json            # Project dependencies and scripts\\
+└── README.md               # This file\\
 
 ## Pictures
 ![Full Screen](./src/img/full-screen-display.png)
