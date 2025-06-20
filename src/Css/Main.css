@@ -1,13 +1,15 @@
 .main-container {
   color: white;
   border-radius: 20px;
-  background-color: transparent !important;
+  background-color: transparent;
   min-height: 100%;
+  width: 91%;
   display: flex;
   justify-content: center;
   text-align: center;
   padding-left: 3%;
-  position: relative;
+  padding-top: 20%;
+  position: absolute;
   z-index: 3; /* Above the content background */
 };
 
@@ -44,7 +46,7 @@
 }
 
 /* Smaller screen */
-@media (max-width: 768px) {
+@media (max-width: 880px) {
   .main-container {
     padding: 0%;
     width: 100%;

@@ -47,7 +47,7 @@
 }
 
 /* Smaller screen */
-@media (max-width: 768px) {
+@media (max-width: 880px) {
   .ten-day-container {
     color: white;
     border-radius: 20px;

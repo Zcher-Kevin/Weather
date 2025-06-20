@@ -20,11 +20,11 @@ const AppContent = ({ isSearchModalOpen, toggleSearchModal, searchQuery }) => {
         </div>
       ) : (
         <>
+          <div className="search-bar">
+              <SearchBar toggleSearchModal={toggleSearchModal} />
+          </div>
           <div className="content">
             <div className="left-panel">
-              <div className="search-bar">
-                <SearchBar toggleSearchModal={toggleSearchModal} />
-              </div>
               <div className="main-item">
                 <Main />
               </div>

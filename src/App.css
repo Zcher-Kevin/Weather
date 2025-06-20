@@ -18,13 +18,14 @@
   width: 90%;
   height: 90%;
   border-radius: 30px;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   overflow: hidden;
   z-index: 1; /* Above #root background */
+  backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
 }
 
 /* Apply overlay to all children except .main-container */
@@ -56,12 +57,27 @@
   display: flex;
   gap: 20px;
   width: 96%;
-  height: 85%;
-  margin: 6% 3% 4% 3%;
+  height: 81%;
+  margin-top: 1%;
+  margin-left: 3%;
+  margin-bottom:4%;
+  margin-right: 3%;
   overflow: hidden;
   position: relative;
   z-index: 2; /* Above .app */
   background-color: transparent; /* Remove solid background to allow hole */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+  padding: 2px 5px; /* Thin padding */
+  border-radius: 25px; /* Uniform rounding for all corners */
+  height: 5%; /* Thin height */
+  width: 90%;
+  margin-top: 4%;
+  overflow: hidden; /* Ensures inner elements don't break the radius */
 }
 
 .left-panel {
@@ -69,14 +85,14 @@
   display: flex;
   flex-direction: column;
   gap: 3%;
-  width: 40%;
+  width: 42%;
   height: 100%;
   background-color: transparent;
   position: relative;
 }
 
 .divider {
-  width: 2%;
+  width: 0%;
   height: 100%;
 }
 
@@ -91,15 +107,7 @@
 }
 
 /* Search bar need to be fixed in the future */
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: #333; /* Dark background */
-  padding: 2px 5px; /* Thin padding */
-  border-radius: 25px; /* Uniform rounding for all corners */
-  height: 5%; /* Thin height */
-  overflow: hidden; /* Ensures inner elements don't break the radius */
-}
+
 
 .main-item {
   flex: 1;
@@ -158,7 +166,7 @@
 }
 
 /* Smaller screen (below 756px) */
-@media (max-width: 756px) {
+@media (max-width: 880px) {
   .app {
     padding: 15px;
     width: 90%;
@@ -193,11 +201,7 @@
     scrollbar-color: #000000 #494949; /* Custom scrollbar colors */
     scroll-behavior: smooth;
   }
-
-  .search-bar {
-    height: 10%;
-  }
-
+  
   .main-item {
     width: 100%;
   }

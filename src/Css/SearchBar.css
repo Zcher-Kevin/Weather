@@ -1,6 +1,6 @@
 .search-input-wrapper {
     flex: 1;
-    border-radius: 25px; /* Ensure wrapper matches container */
+    background-color: transparent; /* Matches the container */
 }
 
 .search-input {
